@@ -1,0 +1,14 @@
+import time
+from SimpleCV import Image, Camera
+
+cam = Camera()
+
+for i in range(20):
+  img = cam.getImage()
+  time.sleep(0.4)
+  
+  # Move your face in some direction
+  img1 = cam.getImage()
+  bb = (100,200,100,100) #get Bounding Box from some method
+  new_bb = img1.track(img,"camshift",bb)
+  # do this in loop.
